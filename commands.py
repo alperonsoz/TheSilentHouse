@@ -264,7 +264,7 @@ def handle_take(item):
             return False
     
     # stick
-    if matched == "stick" or "stick" in item:
+    if matched == "stick" in item:
         if "stick" in roomItems:
             d.inventory.append("stick")
             d.rooms[loc]["items"].remove("stick")
@@ -277,7 +277,7 @@ def handle_take(item):
         return False
     
     # key
-    if matched == "key" or "key" in item:
+    if matched =="key" in item:
         if "key" in roomItems:
             d.inventory.append("key")
             d.rooms[loc]["items"].remove("key")
@@ -290,7 +290,7 @@ def handle_take(item):
         return False
     
     # bat
-    if matched == "bat" or "bat" in item or "baseball" in item:
+    if matched =="bat" or "baseball" in item:
         if "bat" in roomItems:
             d.inventory.append("bat")
             d.rooms[loc]["items"].remove("bat")
@@ -391,7 +391,7 @@ def handle_open(item):
         return False
     
     # lock
-    if matched == "lock" or "lock" in item or "unlock" in item:
+    if matched == "lock" or "unlock" in item:
         return handle_use("lock")
     
     print_error("You cant open that.")
@@ -496,7 +496,7 @@ def handle_use(item):
             return False
     
     # mat
-    if matched == "mat" or "mat" in item:
+    if matched == "mat" in item:
         if "mat" in roomItems:
             print_action("You lift the mat.")
             print_action("You find a small paper with a 4-digit code: " + d.basementCode)
@@ -513,7 +513,7 @@ def handle_use(item):
             return False
     
     # bell
-    if matched == "bell" or "bell" in item:
+    if matched == "bell" in item:
         if "bell" in roomItems:
             if d.rangBell:
                 print_desc("You already rang the doorbell. No one answered.")
@@ -537,7 +537,7 @@ def handle_use(item):
             return False
     
     # lock
-    if matched == "lock" or "lock" in item:
+    if matched == "lock" in item:
         if "lock" in roomItems:
             if d.basementUnlocked:
                 print_desc("The lock is already open.")
@@ -561,7 +561,7 @@ def handle_use(item):
             return False
     
     # gun
-    if matched == "gun" or "gun" in item:
+    if matched == "gun" in item:
         if "gun" in d.inventory:
             print_warning("You hold the gun ready. But there is nothing to shoot here.")
             return False
@@ -570,7 +570,7 @@ def handle_use(item):
             return False
     
     # stick
-    if matched == "stick" or "stick" in item:
+    if matched == "stick" in item:
         if "stick" in d.inventory:
             if loc == "back garden" and not d.birdhouseDown:
                 print_action("You pushed the bird house with the stick.")
